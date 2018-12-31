@@ -1,4 +1,6 @@
 var fs = require('fs');
+const shell = require('shelljs');
+
 const login = require("facebook-chat-api");
 var user = fs.readFileSync("username.txt", "utf8");
 var pass = fs.readFileSync("password.txt", "utf8");
@@ -13,6 +15,10 @@ login({email: user, password: pass}, (err, api) => {
         }
         if (message.body.toLowerCase() === "rip") {
             api.sendMessage("rip", message.threadID);
+        }
+        if (message.body.toLowerCase() === "reboot") {
+            api.sendMessage("Goodnight", message.threadID);
+            shell.exec('./rebot.sh')
         }
     });
 });
