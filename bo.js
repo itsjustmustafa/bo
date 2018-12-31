@@ -18,7 +18,7 @@ login({email: user, password: pass}, (err, api) => {
         }
         if (message.body.toLowerCase() === "reboot") {
             api.sendMessage("Goodnight", message.threadID);
-            shell.exec('./rebot.sh')
+            shell.exec('./rebot.sh');
         }
     });
 });
