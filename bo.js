@@ -10,7 +10,7 @@ login({email: user, password: pass}, (err, api) => {
     if(err) return console.error(err);
     
     api.listen((err, message) => {
-        if (message.body.toLowerCase.match(/yee[e]*t/g) !== null) {
+        if (message.body.toLowerCase.match(/y(\s)*e(\s)*e(\s)*(e|\s)*(\s)*t/g) !== null) {
             api.sendMessage("yeet", message.threadID);
         }
         if (message.body.toLowerCase.match(/[y]+e[e]+[h]+[a]+[w]+/g) !== null) {
